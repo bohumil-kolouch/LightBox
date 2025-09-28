@@ -1,15 +1,22 @@
-<script>
 // Open the Modal
 function openModal() {
-  document.getElementById("myModal").style.display = "block";
+  const modal = document.getElementById("myModal");
+  if (modal) {
+    modal.style.display = "block";
+    modal.setAttribute("aria-hidden", "false");
+  }
 }
 
 // Close the Modal
 function closeModal() {
-  document.getElementById("myModal").style.display = "none";
+  const modal = document.getElementById("myModal");
+  if (modal) {
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden", "true");
+  }
 }
 
-var slideIndex = 1;
+let slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -23,20 +30,25 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
+  const slides = document.getElementsByClassName("mySlides");
+  const dots = document.getElementsByClassName("demo");
+  const captionText = document.getElementById("caption");
+
+  if (!slides.length) return;
+
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
+  for (let i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
+
+  slides[slideIndex - 1].style.display = "block";
+  if (dots[slideIndex - 1]) dots[slideIndex - 1].className += " active";
+  if (captionText && dots[slideIndex - 1]) {
+    captionText.textContent = dots[slideIndex - 1].alt || "";
+  }
 }
-</script>

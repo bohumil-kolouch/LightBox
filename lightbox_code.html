@@ -1,68 +1,90 @@
-<!-- Images used to open the lightbox -->
-<div class="row">
-  <div class="column">
-    <img src="img1.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbox – Minimal</title>
+    <link rel="stylesheet" href="./css/lightbox_code.css">
+  </head>
+  <body>
+
+   <!-- ===== Lightbox block (drop-in) ===== -->
+<div id="lightbox-block">
+  <!-- Thumbnails that open the lightbox -->
+  <div class="row">
+    <div class="column">
+      <img src="./images/thumb_first/windows_10_0.jpg" alt="Photo 1"
+           onclick="openModal();currentSlide(1)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="./images/thumb_first/windows_10_1.jpg" alt="Photo 2"
+           onclick="openModal();currentSlide(2)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="./images/thumb_first/windows_11_0.jpg" alt="Photo 3"
+           onclick="openModal();currentSlide(3)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="./images/thumb_first/windows_11_1.jpg" alt="Photo 4"
+           onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
   </div>
-  <div class="column">
-    <img src="img2.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
-  </div>
-  <div class="column">
-    <img src="img3.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
-  </div>
-  <div class="column">
-    <img src="img4.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
+
+  <!-- The Modal/Lightbox -->
+  <div id="myModal" class="modal" aria-hidden="true">
+    <span class="close cursor" onclick="closeModal()" aria-label="Close">&times;</span>
+    <div class="modal-content">
+
+      <!-- Slides (large images) -->
+      <div class="mySlides">
+        <div class="numbertext">1 / 4</div>
+        <img src="./images/windows_10_0.jpg" alt="Photo 1" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">2 / 4</div>
+        <img src="./images/windows_10_1.jpg" alt="Photo 2" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">3 / 4</div>
+        <img src="./images/windows_11_0.jpg" alt="Photo 3" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">4 / 4</div>
+        <img src="./images/windows_11_1.jpg" alt="Photo 4" style="width:100%">
+      </div>
+
+      <!-- Prev/Next controls -->
+      <a class="prev" onclick="plusSlides(-1)" aria-label="Previous">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)" aria-label="Next">&#10095;</a>
+
+      <!-- Caption -->
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+
+      <!-- Modal thumbnail strip -->
+      <div class="column">
+        <img class="demo" src="./images/thumb/windows_10_0.jpg" onclick="currentSlide(1)" alt="Photo 1">
+      </div>
+      <div class="column">
+        <img class="demo" src="./images/thumb/windows_10_1.jpg" onclick="currentSlide(2)" alt="Photo 2">
+      </div>
+      <div class="column">
+        <img class="demo" src="./images/thumb/windows_11_0.jpg" onclick="currentSlide(3)" alt="Photo 3">
+      </div>
+      <div class="column">
+        <img class="demo" src="./images/thumb/windows_11_1.jpg" onclick="currentSlide(4)" alt="Photo 4">
+      </div>
+    </div>
   </div>
 </div>
+<!-- ===== End lightbox block ===== -->
 
-<!-- The Modal/Lightbox -->
-<div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
 
-    <div class="mySlides">
-      <div class="numbertext">1 / 4</div>
-      <img src="img1_wide.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">2 / 4</div>
-      <img src="img2_wide.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">3 / 4</div>
-      <img src="img3_wide.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">4 / 4</div>
-      <img src="img4_wide.jpg" style="width:100%">
-    </div>
-
-    <!-- Next/previous controls -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <!-- Caption text -->
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-    <!-- Thumbnail image controls -->
-    <div class="column">
-      <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Snow">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Mountains">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Lights">
-    </div>
-  </div>
-</div>
+    <!-- Lightbox script -->
+    <script defer src="./js/lightbox_code.js"></script>
+  </body>
+</html>
